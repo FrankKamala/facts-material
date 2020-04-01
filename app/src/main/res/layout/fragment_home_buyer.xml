@@ -6,17 +6,66 @@
     android:layout_height="match_parent"
     tools:context=".buyer_ui.home.HomeFragment">
 
-    <TextView
-        android:id="@+id/text_home"
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/invoicesToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/buyerInvoiceRecycler"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="?android:attr/windowBackground">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/invoiceToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/windowBackground"
+            app:menu="@menu/invoices_menu">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/facts_logo_final"
+                    android:contentDescription="@string/facts_logo" />
+            </LinearLayout>
+            <TextView
+                style="@style/TextAppearance.MaterialComponents.Headline5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/invoices"
+                android:layout_gravity="center_horizontal"/>
+        </com.google.android.material.appbar.MaterialToolbar>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/windowBackground">
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/invoiceSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_bg"
+                app:queryBackground="@android:color/transparent"
+                app:queryHint="Search invoices by number, buyer or amount"
+                android:layout_margin="8dp"
+                app:iconifiedByDefault="false"/>
+        </FrameLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/buyerInvoiceRecycler"
+        android:layout_width="414dp"
+        android:layout_height="500dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/invoice_list" />
 </androidx.constraintlayout.widget.ConstraintLayout>
