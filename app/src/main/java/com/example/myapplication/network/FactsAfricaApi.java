@@ -27,4 +27,7 @@ public interface FactsAfricaApi {
 
     @GET("supplier/invoices/saved")
     Call<List<Invoice>> getSavedInvoices();
+
+    @GET("supplier/buyers")
+    Call<User> getAllBuyers();
 }

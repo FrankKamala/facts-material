@@ -126,6 +126,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     factsPreferences.setUserName(response.body().getName());
                     factsPreferences.setUserEmail(response.body().getEmail());
                     factsPreferences.setUserRole(response.body().getRole());
+                    factsPreferences.setUserPhone(response.body().getPhone());
                     factsPreferences.setLoggedIn(true);
                     startHomeActivity(response.body().getRole());
                     finish();

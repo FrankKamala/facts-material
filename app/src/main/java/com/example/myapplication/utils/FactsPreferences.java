@@ -7,6 +7,7 @@ import static com.example.myapplication.utils.Constants.KEY_API_TOKEN;
 import static com.example.myapplication.utils.Constants.KEY_LOGIN_STATE;
 import static com.example.myapplication.utils.Constants.KEY_USER_EMAIL;
 import static com.example.myapplication.utils.Constants.KEY_USER_NAME;
+import static com.example.myapplication.utils.Constants.KEY_USER_PHONE;
 import static com.example.myapplication.utils.Constants.KEY_USER_ROLE;
 
 public class FactsPreferences {
@@ -33,6 +34,8 @@ public class FactsPreferences {
         return "Bearer " +token;
     }
 
+
+
     public void setUserName(String userName) {
         preferences.edit().putString(KEY_USER_NAME, userName).apply();
     }
@@ -54,4 +57,11 @@ public class FactsPreferences {
     }
 
     public static int getUserRole() { return preferences.getInt(KEY_USER_ROLE, 0); }
+
+    public static String getUserPhone(){
+        return preferences.getString(KEY_USER_PHONE, "");
+    }
+    public void setUserPhone(String phone){
+        preferences.edit().putString(KEY_USER_PHONE, phone).apply();
+    }
 }

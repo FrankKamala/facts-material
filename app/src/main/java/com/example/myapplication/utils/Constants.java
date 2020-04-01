@@ -8,4 +8,5 @@ public class Constants {
     public static final String KEY_USER_NAME = "key_user_name";
     public static final String KEY_USER_EMAIL = "key_user_email";
     public static final String KEY_USER_ROLE = "key_user_role";
+    public static final String KEY_USER_PHONE = "key_user_phone";
 }
