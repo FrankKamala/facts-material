@@ -1,17 +1,31 @@
+
 package com.example.myapplication.models;
 
+import java.io.Serializable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.io.Serializable;
+public class User implements Serializable
+{
 
-public class User implements Serializable {
     @SerializedName("id")
     @Expose
     private Integer id;
     @SerializedName("role")
     @Expose
     private Integer role;
+    @SerializedName("phone")
+    @Expose
+    private String phone;
+    @SerializedName("image_url")
+    @Expose
+    private String imageUrl;
+    @SerializedName("company_id")
+    @Expose
+    private Integer companyId;
+    @SerializedName("company_role")
+    @Expose
+    private Integer companyRole;
     @SerializedName("name")
     @Expose
     private String name;
@@ -30,30 +44,38 @@ public class User implements Serializable {
     @SerializedName("updated_at")
     @Expose
     private String updatedAt;
-    private final static long serialVersionUID = 2099104453556763276L;
+    private final static long serialVersionUID = 610521815286926217L;
 
     /**
      * No args constructor for use in serialization
-     *
+     * 
      */
     public User() {
     }
 
     /**
-     *
+     * 
      * @param createdAt
+     * @param companyId
+     * @param companyRole
      * @param role
      * @param apiToken
+     * @param phone
      * @param emailVerifiedAt
+     * @param imageUrl
      * @param name
      * @param id
      * @param email
      * @param updatedAt
      */
-    public User(Integer id, Integer role, String name, String email, Object emailVerifiedAt, String apiToken, String createdAt, String updatedAt) {
+    public User(Integer id, Integer role, String phone, String imageUrl, Integer companyId, Integer companyRole, String name, String email, Object emailVerifiedAt, String apiToken, String createdAt, String updatedAt) {
         super();
         this.id = id;
         this.role = role;
+        this.phone = phone;
+        this.imageUrl = imageUrl;
+        this.companyId = companyId;
+        this.companyRole = companyRole;
         this.name = name;
         this.email = email;
         this.emailVerifiedAt = emailVerifiedAt;
@@ -76,6 +98,38 @@ public class User implements Serializable {
 
     public void setRole(Integer role) {
         this.role = role;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public Integer getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(Integer companyId) {
+        this.companyId = companyId;
+    }
+
+    public Integer getCompanyRole() {
+        return companyRole;
+    }
+
+    public void setCompanyRole(Integer companyRole) {
+        this.companyRole = companyRole;
     }
 
     public String getName() {
@@ -125,4 +179,5 @@ public class User implements Serializable {
     public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
     }
+
 }

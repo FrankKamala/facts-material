@@ -1,12 +1,9 @@
 
 package com.example.myapplication.models;
 
-import androidx.annotation.NonNull;
-
+import java.io.Serializable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-
-import java.io.Serializable;
 
 public class Invoice implements Serializable
 {
@@ -20,12 +17,21 @@ public class Invoice implements Serializable
     @SerializedName("buyer_id")
     @Expose
     private Integer buyerId;
+    @SerializedName("creator_id")
+    @Expose
+    private Integer creatorId;
+    @SerializedName("approver_id")
+    @Expose
+    private Integer approverId;
     @SerializedName("invoice_status")
     @Expose
     private Integer invoiceStatus;
+    @SerializedName("invoice_type")
+    @Expose
+    private Integer invoiceType;
     @SerializedName("invoice_amount")
     @Expose
-    private String invoiceAmount;
+    private Integer invoiceAmount;
     @SerializedName("due_date")
     @Expose
     private String dueDate;
@@ -35,7 +41,7 @@ public class Invoice implements Serializable
     @SerializedName("updated_at")
     @Expose
     private String updatedAt;
-    private final static long serialVersionUID = 9150701147035518491L;
+    private final static long serialVersionUID = 1937195599566218600L;
 
     /**
      * No args constructor for use in serialization
@@ -48,26 +54,30 @@ public class Invoice implements Serializable
      * 
      * @param createdAt
      * @param supplierId
+     * @param approverId
      * @param dueDate
+     * @param creatorId
+     * @param invoiceType
      * @param invoiceAmount
      * @param id
      * @param buyerId
      * @param invoiceStatus
      * @param updatedAt
      */
-    public Invoice(Integer id, Integer supplierId, Integer buyerId, Integer invoiceStatus, String invoiceAmount, String dueDate, String createdAt, String updatedAt) {
+    public Invoice(Integer id, Integer supplierId, Integer buyerId, Integer creatorId, Integer approverId, Integer invoiceStatus, Integer invoiceType, Integer invoiceAmount, String dueDate, String createdAt, String updatedAt) {
         super();
         this.id = id;
         this.supplierId = supplierId;
         this.buyerId = buyerId;
+        this.creatorId = creatorId;
+        this.approverId = approverId;
         this.invoiceStatus = invoiceStatus;
+        this.invoiceType = invoiceType;
         this.invoiceAmount = invoiceAmount;
         this.dueDate = dueDate;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
-
-
 
     public Integer getId() {
         return id;
@@ -93,6 +103,22 @@ public class Invoice implements Serializable
         this.buyerId = buyerId;
     }
 
+    public Integer getCreatorId() {
+        return creatorId;
+    }
+
+    public void setCreatorId(Integer creatorId) {
+        this.creatorId = creatorId;
+    }
+
+    public Integer getApproverId() {
+        return approverId;
+    }
+
+    public void setApproverId(Integer approverId) {
+        this.approverId = approverId;
+    }
+
     public Integer getInvoiceStatus() {
         return invoiceStatus;
     }
@@ -101,11 +127,19 @@ public class Invoice implements Serializable
         this.invoiceStatus = invoiceStatus;
     }
 
-    public String getInvoiceAmount() {
+    public Integer getInvoiceType() {
+        return invoiceType;
+    }
+
+    public void setInvoiceType(Integer invoiceType) {
+        this.invoiceType = invoiceType;
+    }
+
+    public Integer getInvoiceAmount() {
         return invoiceAmount;
     }
 
-    public void setInvoiceAmount(String invoiceAmount) {
+    public void setInvoiceAmount(Integer invoiceAmount) {
         this.invoiceAmount = invoiceAmount;
     }
 
@@ -131,31 +165,6 @@ public class Invoice implements Serializable
 
     public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
-    }
-
-
-
-
-  public String convertStatus(){
-        String status = getInvoiceStatus().toString();
-
-        if(status.equals("1")){
-            status = "pending";
-        }else if(status.equals("2")){
-            status = "approved";
-        }else{
-            status = "declined";
-        }
-        return status;
-}
-
-
-
-    @NonNull
-    @Override
-    public String toString() {
-
-        return this.invoiceAmount; ///selects many properties form model
     }
 
 }
