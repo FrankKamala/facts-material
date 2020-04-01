@@ -20,13 +20,15 @@ public interface FactsAfricaApi {
     Call<User> getLoggedUser();
 
     @GET("supplier/invoices")
-    Call<List<Invoice>> getAllInvoices();
+    Call<List<Invoice>> getAllInvoices();//
 
     @GET("user/{id}")
     Call<User> getUserById(@Path("id") int id);
 
     @GET("supplier/invoices/saved")
     Call<List<Invoice>> getSavedInvoices();
+    @GET("buyer/invoices")
+    Call<List<Invoice>> getBuyerInvoices();
 
     @GET("supplier/buyers")
     Call<User> getAllBuyers();

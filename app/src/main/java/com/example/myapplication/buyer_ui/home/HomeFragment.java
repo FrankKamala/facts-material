@@ -81,7 +81,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     private void loadInvoices() {
         refreshBuyer.setRefreshing(true);
         FactsAfricaApi service = ApiClient.getClient().create(FactsAfricaApi.class);
-        Call<List<Invoice>> call = service.getAllInvoices();
+        Call<List<Invoice>> call = service.getBuyerInvoices();
         call.enqueue(new Callback<List<Invoice>>() {
             @Override
             public void onResponse(Call<List<Invoice>> call, Response<List<Invoice>> response) {
@@ -152,7 +152,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         Snackbar snackbar = Snackbar.make(rootView,
                 "Network error!.", Snackbar.LENGTH_INDEFINITE);
         snackbar.setActionTextColor(getResources().getColor(R.color.design_default_color_error));
-        snackbar.setAction("Retry", v -> {
+        snackbar.setAction("Please Retry", v -> {
             mBuyerInvoiceProgressBar.setVisibility(View.VISIBLE);
             loadInvoices();
             snackbar.dismiss();
