@@ -19,8 +19,9 @@ public class Splash extends AppCompatActivity {
 
         myConstraint=(ConstraintLayout)findViewById(R.id.splashYetu);
         myAnimator=(AnimationDrawable)myConstraint.getBackground();
-        myAnimator.setEnterFadeDuration(2000);
-        myAnimator.setExitFadeDuration(2000);
+// call errors
+//        myAnimator.setEnterFadeDuration(2000);
+//        myAnimator.setExitFadeDuration(2000);
         myAnimator.start();
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
@@ -33,4 +34,4 @@ public class Splash extends AppCompatActivity {
         },  3000);
     }
     }
-}
+
